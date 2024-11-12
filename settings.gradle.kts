@@ -7,7 +7,7 @@ pluginManagement {
                 includeGroupByRegex("androidx.*")
             }
         }
-        mavenCentral()
+        maven { setUrl("https://maven.aliyun.com/repository/central") }
         gradlePluginPortal()
     }
 }
@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
-        mavenCentral()
+        maven { setUrl("https://maven.aliyun.com/repository/central") }
     }
 }
 

@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initUtil();
+        initUtils();
         bindAttrs();
         bindListener();
 
         Uri uri = getIntent().getData();
         if (uri != null) {
-            Log.i(TAG, "intent from " + uri);
+            Log.i(TAG, "intent from: " + uri);
             DocumentFile documentFile = DocumentFile.fromSingleUri(this, uri);
             try (InputStream in = getContentResolver().openInputStream(uri)) {
                 if (in != null && documentFile != null) {
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void initUtil() {
+    private void initUtils() {
         ToastUtil.init(this);
     }
 
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         pager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
-                Log.d(TAG, "onPageSelected: " + position);
+                Log.d(TAG, "page selected: " + position);
                 navbar.getChildAt(lastPosition).setSelected(false);
                 navbar.getChildAt(position).setSelected(true);
                 lastPosition = position;

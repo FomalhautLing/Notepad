@@ -1,19 +1,14 @@
 package pvt.sanae.notepad.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.ActionMode;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+
+import androidx.fragment.app.Fragment;
 
 import pvt.sanae.notepad.MainActivity;
 import pvt.sanae.notepad.R;
@@ -34,15 +29,16 @@ public class ContentFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_content, container, false);
+        View view = inflater.inflate(R.layout.fragment_content, container, false);
         ac = (MainActivity) requireActivity();
         textArea = view.findViewById(R.id.textarea);
-        textArea.setOnClickListener(v -> modifyInfo());
+        textArea.setOnClickListener(v -> modifyInfo());  // 第一次获取焦点时不触发点击事件
+        textArea.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) modifyInfo();
+        });
         textArea.addTextChangedListener(new TextWatcher() {
-
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -52,7 +48,6 @@ public class ContentFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
         return view;
@@ -77,8 +72,7 @@ public class ContentFragment extends Fragment {
             if (content.charAt(i) == '\n') {
                 row++;
                 colum = 1;
-            }
-            else colum++;
+            } else colum++;
         }
         ac.setInfo(row, colum, content.length());
     }
