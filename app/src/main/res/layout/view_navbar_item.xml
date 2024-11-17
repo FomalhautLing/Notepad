@@ -1,17 +1,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="@dimen/tab_width"
-    android:layout_height="25dp"
-    android:background="@drawable/bg_tab">
+    android:layout_width="@dimen/navbarItemWidth"
+    android:layout_height="@dimen/navbarItemHeight"
+    android:background="@drawable/bg_navbar_item">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:ellipsize="end"
+        android:gravity="center_vertical"
         android:maxEms="8"
         android:maxLines="1"
-        android:paddingHorizontal="8dp"
+        android:paddingHorizontal="@dimen/navbarItemPadding"
         android:text="无标题"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,9 +21,10 @@
     <TextView
         android:id="@+id/close"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:clickable="true"
-        android:paddingHorizontal="8dp"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/navbarItemPadding"
         android:text="×"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

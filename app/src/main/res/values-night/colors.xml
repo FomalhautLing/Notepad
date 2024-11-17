@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="nav_dark">#000C1B</color>
-    <color name="nav_norm">#1A2128</color>
-    <color name="nav_light">#272D35</color>
-    <color name="progress_bg">#E6E6E6</color>
-    <color name="progress_fg">#26A0DA</color>
-    <color name="pressed_bg">#272727</color>
-    <color name="selected_bg">#222222</color>
-    <color name="background">#191919</color>
+<!-- 亮色模式暂未适配，定义在 values/colors 中的就是夜间模式的颜色值 -->
 </resources>

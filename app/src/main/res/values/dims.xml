@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="nav_height">40dp</dimen>
-    <dimen name="tool_height">40dp</dimen>
-    <dimen name="tab_width">150dp</dimen>
-    <dimen name="tool_width">50dp</dimen>
-    <dimen name="footer_height">30dp</dimen>
+
+    <!-- general -->
+    <dimen name="navbarHeight">40dp</dimen>
+    <dimen name="navbarItemWidth">150dp</dimen>
+    <dimen name="navbarItemHeight">30dp</dimen>
+    <dimen name="navbarItemPadding">10dp</dimen>
+
+    <dimen name="toolbarHeight">40dp</dimen>
+    <dimen name="toolItemWidth">50dp</dimen>
+
+    <dimen name="footerHeight">30dp</dimen>
+
+
+    <!-- font sizes -->
     <dimen name="small">12sp</dimen>
+    <dimen name="normal">14sp</dimen>
     <dimen name="large">16sp</dimen>
+    <dimen name="extra">18sp</dimen>
+
+
+    <!-- dialog -->
+    <dimen name="dialogWidth">320dp</dimen>
+    <dimen name="dialogPadding">15dp</dimen>
+    <dimen name="dialogButtonGap">7dp</dimen>
+    <dimen name="dialogButtonHeight">35dp</dimen>
 </resources>

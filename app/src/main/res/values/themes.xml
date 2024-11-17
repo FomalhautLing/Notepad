@@ -1,10 +1,8 @@
 <resources>
 
-    <style name="Base.Theme.Notepad" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:colorBackground">@color/background</item>
+    <style name="Theme.Notepad" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:colorBackground">#191919</item>
         <item name="colorPrimary">#0078D4</item>
-        <item name="android:navigationBarColor">@color/nav_dark</item>
     </style>
 
-    <style name="Theme.Notepad" parent="Base.Theme.Notepad" />
 </resources>

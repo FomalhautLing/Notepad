@@ -13,6 +13,7 @@ import pvt.sanae.notepad.fragment.ContentFragment;
 
 public class PagerAdapter extends FragmentStateAdapter {
 
+    private final FragmentManager fm;
     private final List<ContentFragment> data;
     private final List<Long> position2id;
     private long id = 0;
@@ -21,19 +22,15 @@ public class PagerAdapter extends FragmentStateAdapter {
         super(fragmentManager, lifecycle);
         position2id = new ArrayList<>();
         data = new ArrayList<>();
-        add(new ContentFragment());
+        fm = fragmentManager;
     }
 
-    public void setContent(int position, String content) {
-        data.get(position).setContent(content);
+    public ContentFragment get(int position) {
+        return (ContentFragment) fm.findFragmentByTag("f" + position2id.get(position));
     }
 
-    public Fragment get(int position) {
-        return data.get(position);
-    }
-
-    public void set(int position, ContentFragment fragment) {
-        data.set(position, fragment);
+    public void set(int position, ContentFragment cf) {
+        data.set(position, cf);
         position2id.set(position, id++);
         notifyItemChanged(position);
     }

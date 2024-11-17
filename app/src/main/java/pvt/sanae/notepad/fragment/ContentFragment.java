@@ -1,5 +1,6 @@
 package pvt.sanae.notepad.fragment;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -8,72 +9,102 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import lombok.Getter;
 import pvt.sanae.notepad.MainActivity;
 import pvt.sanae.notepad.R;
 
 public class ContentFragment extends Fragment {
 
     private MainActivity ac;
-    private EditText textArea;
-    private String content;
+    private EditText textarea;
+    private String initialText;
+    @Getter private Uri uri;
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getContent() {
-        return textArea.getText().toString();
+    public static ContentFragment newInstance(Uri uri, String initialText) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", uri);
+        args.putString("initialText", initialText);
+        ContentFragment fragment = new ContentFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle args = getArguments();
+        if (args != null) {
+            uri = args.getParcelable("uri");
+            initialText = args.getString("initialText");
+        }
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_content, container, false);
         ac = (MainActivity) requireActivity();
-        textArea = view.findViewById(R.id.textarea);
-        textArea.setOnClickListener(v -> modifyInfo());  // 第一次获取焦点时不触发点击事件
-        textArea.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) modifyInfo();
+        textarea = view.findViewById(R.id.textarea);
+        textarea.setText(initialText);
+        bindListener();
+        return view;
+    }
+
+    public boolean contentNotChanged() {
+        if (initialText == null) initialText = "";
+        return initialText.equals(getContent());
+    }
+
+    public String getContent() {
+        return textarea.getText().toString();
+    }
+
+    public String getFirstLine(int limit) {
+        String content = getContent();
+        int b = content.indexOf('\n');
+        if (b == -1) return content;
+        else if (limit == -1) return content.substring(0, b);
+        else return content.substring(0, Math.min(limit, b));
+    }
+
+    private void bindListener() {
+        textarea.setOnClickListener(v -> updateFooter());  // 第一次获取焦点时不触发点击事件
+        textarea.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) updateFooter();
         });
-        textArea.addTextChangedListener(new TextWatcher() {
+        textarea.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                modifyInfo();
+                updateFooter();
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (uri == null) {
+                    if (getContent().isEmpty()) ac.mNavbar.setCurrentText("无标题");
+                    else ac.mNavbar.setCurrentText(getFirstLine(-1));
+                }
             }
         });
-        return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        textArea.setText(content);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        content = textArea.getText().toString();
-    }
-
-    private void modifyInfo() {
+    private void updateFooter() {
         String content = getContent();
         int row = 1, colum = 1;
-        for (int i = 0; i < textArea.getSelectionEnd(); i++) {
+        for (int i = 0; i < textarea.getSelectionEnd(); i++) {
             if (content.charAt(i) == '\n') {
                 row++;
                 colum = 1;
             } else colum++;
         }
-        ac.setInfo(row, colum, content.length());
+        ac.mFooter.setFooter(row, colum, content.length());
     }
 }

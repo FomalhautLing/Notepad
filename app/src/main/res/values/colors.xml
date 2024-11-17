@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="nav_dark">#D0DCEC</color>
-    <color name="nav_norm">#F2F4F9</color>
-    <color name="nav_light">#272D35</color>
-    <color name="progress_bg">#E6E6E6</color>
-    <color name="progress_fg">#26A0DA</color>
-    <color name="pressed_bg">#272727</color>
-    <color name="selected_bg">#97C6EB</color>
-    <color name="background">#F9F9F9</color>
+
+    <!-- text: note that these are opposite to color-day -->
+    <color name="defaultText">@android:color/secondary_text_light</color>
+    <color name="defaultReverseText">@android:color/secondary_text_dark</color>
+
+
+    <!-- main colors -->
+    <color name="colorDark">#000C1B</color>
+    <color name="colorNorm">#1A2128</color>
+    <color name="colorLight">#272D35</color>
+
+
+    <!-- dialog -->
+    <color name="dialogLight">#2B2B2B</color>
+    <color name="dialogDark">#202020</color>
+    <color name="dialogButton">#2D2D2D</color>
+    <color name="dialogButtonPressed">#323232</color>
+
 </resources>

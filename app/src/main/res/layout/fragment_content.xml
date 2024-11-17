@@ -14,8 +14,9 @@
         android:importantForAutofill="no"
         android:inputType="textMultiLine|textNoSuggestions"
         android:padding="10dp"
+        android:breakStrategy="simple"
         android:scrollbars="vertical"
-        android:textSize="14sp"
+        android:textSize="@dimen/normal"
         tools:ignore="LabelFor" />
 
 </ScrollView>
