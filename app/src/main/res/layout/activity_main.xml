@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginHorizontal="@dimen/paddingToScreen"
                 android:src="@mipmap/icon_app"
                 tools:ignore="ContentDescription" />
 
@@ -115,7 +115,7 @@
         android:layout_height="@dimen/footerHeight"
         android:background="@color/colorNorm"
         android:divider="?android:dividerVertical"
-        android:paddingHorizontal="10dp"
+        android:paddingHorizontal="@dimen/paddingToScreen"
         android:paddingVertical="5dp"
         android:showDividers="middle"
         app:layout_constraintBottom_toBottomOf="parent"

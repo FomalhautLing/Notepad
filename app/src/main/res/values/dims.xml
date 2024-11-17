@@ -2,6 +2,8 @@
 <resources>
 
     <!-- general -->
+    <dimen name="paddingToScreen">10dp</dimen>
+
     <dimen name="navbarHeight">40dp</dimen>
     <dimen name="navbarItemWidth">150dp</dimen>
     <dimen name="navbarItemHeight">30dp</dimen>

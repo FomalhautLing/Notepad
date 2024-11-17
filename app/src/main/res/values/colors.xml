@@ -12,6 +12,13 @@
     <color name="colorLight">#272D35</color>
 
 
+    <!-- setting -->
+    <color name="settingBackground">#1D2026</color>
+    <color name="settingDim">#25272C</color>
+    <color name="settingLight">#292B31</color>
+    <color name="settingLighter">#313539</color>
+
+
     <!-- dialog -->
     <color name="dialogLight">#2B2B2B</color>
     <color name="dialogDark">#202020</color>

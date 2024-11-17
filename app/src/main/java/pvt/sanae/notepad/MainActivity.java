@@ -15,6 +15,7 @@ import pvt.sanae.notepad.fragment.ContentFragment;
 import pvt.sanae.notepad.manager.FooterManager;
 import pvt.sanae.notepad.manager.NavbarManager;
 import pvt.sanae.notepad.manager.PageManager;
+import pvt.sanae.notepad.manager.ToolbarManager;
 import pvt.sanae.notepad.util.IOUtil;
 import pvt.sanae.notepad.util.ToastUtil;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public PageManager mPage;
     public NavbarManager mNavbar;
     public FooterManager mFooter;
+    public ToolbarManager mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,5 +62,6 @@ public class MainActivity extends AppCompatActivity {
         mPage = new PageManager(this);
         mNavbar = new NavbarManager(this);
         mFooter = new FooterManager(this);
+        mToolbar = new ToolbarManager(this);
     }
 }

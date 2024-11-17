@@ -13,7 +13,7 @@
         android:gravity="top"
         android:importantForAutofill="no"
         android:inputType="textMultiLine|textNoSuggestions"
-        android:padding="10dp"
+        android:padding="@dimen/paddingToScreen"
         android:breakStrategy="simple"
         android:scrollbars="vertical"
         android:textSize="@dimen/normal"
