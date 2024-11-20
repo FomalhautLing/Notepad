@@ -21,6 +21,8 @@
     <dimen name="settingOptionHeight">65dp</dimen>
     <dimen name="settingOptionMargin">5dp</dimen>
     <dimen name="settingOptionIconWidth">20dp</dimen>
+    <dimen name="settingOptionSubHeight">40dp</dimen>
+    <dimen name="settingOptionSubPadding">10dp</dimen>
 
 
     <!-- font sizes -->
@@ -42,7 +44,14 @@
     <dimen name="switchThumbGap">7dp</dimen>
 
 
+    <!-- radio -->
+    <dimen name="radioBtnSize">20dp</dimen>
+    <dimen name="radioBtnGap">5dp</dimen>
+
+
+    <!-- menu -->
     <dimen name="menuItemHeight">30dp</dimen>
     <dimen name="menuItemPadding">10dp</dimen>
     <dimen name="menuWidth">100dp</dimen>
+
 </resources>

@@ -17,6 +17,7 @@ public class SettingActivity extends ViewActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        appTheme.setSubOption(ConfigUtil.getAppTheme());
         autoBreak.setChecked(ConfigUtil.isAutoBreak());
         spellCheck.setChecked(ConfigUtil.isSpellCheck());
     }
@@ -24,6 +25,7 @@ public class SettingActivity extends ViewActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        ConfigUtil.setAppTheme(appTheme.getSubOption());
         ConfigUtil.setAutoBreak(autoBreak.isChecked());
         ConfigUtil.setSpellCheck(spellCheck.isChecked());
     }

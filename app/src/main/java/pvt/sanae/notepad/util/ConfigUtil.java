@@ -26,9 +26,10 @@ public class ConfigUtil {
         spellCheck = sp.getBoolean("spellCheck", false);
     }
 
-    public static void setAppTheme(int theme) {
+    public static void setAppTheme(int appTheme) {
+        ConfigUtil.appTheme = appTheme;
         SharedPreferences.Editor editor = sp.edit();
-        editor.putInt("appTheme", theme);
+        editor.putInt("appTheme", appTheme);
         editor.apply();
     }
 

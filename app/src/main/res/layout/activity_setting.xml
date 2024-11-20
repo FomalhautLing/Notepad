@@ -1,106 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/settingBackground"
-    android:orientation="vertical"
     android:padding="@dimen/paddingToScreen">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/settingBarHeight">
-
-        <ImageButton
-            android:id="@+id/backBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@null"
-            android:paddingHorizontal="10dp"
-            android:rotation="270"
-            android:src="@mipmap/arrow"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:id="@+id/appIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="12dp"
-            android:src="@mipmap/icon_app32"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="记事本" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_vertical"
-        android:text="设置"
-        android:textSize="23sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="外观" />
-
-        <pvt.sanae.notepad.view.SettingOption
-            android:id="@+id/appTheme"
+        <LinearLayout
+            android:id="@+id/settingBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/settingOptionMargin"
-            app:desc="选择要显示的应用主题"
-            app:src="@mipmap/setting_option_palette"
-            app:title="应用主题" />
+            android:layout_height="@dimen/settingBarHeight">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="文本格式" />
+            <ImageButton
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingHorizontal="10dp"
+                android:rotation="270"
+                android:src="@mipmap/arrow"
+                tools:ignore="ContentDescription" />
 
-        <pvt.sanae.notepad.view.SettingOption
-            android:id="@+id/autoBreak"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/settingOptionMargin"
-            app:desc="默认情况下，在窗口中调整文本"
-            app:src="@mipmap/setting_option_auto_break"
-            app:title="自动换行"
-            app:with_switch_btn="true" />
+            <ImageView
+                android:id="@+id/appIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="12dp"
+                android:src="@mipmap/icon_app32"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="记事本" />
+
+        </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="拼写" />
-
-        <pvt.sanae.notepad.view.SettingOption
-            android:id="@+id/spellCheck"
+            android:id="@+id/settingitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/settingOptionMargin"
-            app:src="@mipmap/setting_option_spell_check"
-            app:title="拼写检查"
-            app:with_switch_btn="true" />
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_vertical"
+            android:text="设置"
+            android:textSize="23sp" />
+
+        <LinearLayout
+            android:id="@+id/settingOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="外观" />
+
+            <pvt.sanae.notepad.view.SettingOption
+                android:id="@+id/appTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/settingOptionMargin"
+                android:clickable="true"
+                app:desc="选择要显示的应用主题"
+                app:src="@mipmap/setting_option_palette"
+                app:title="应用主题" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="文本格式" />
+
+            <pvt.sanae.notepad.view.SettingOption
+                android:id="@+id/autoBreak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/settingOptionMargin"
+                app:desc="默认情况下，在窗口中调整文本"
+                app:src="@mipmap/setting_option_auto_break"
+                app:title="自动换行"
+                app:with_switch_btn="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="拼写" />
+
+            <pvt.sanae.notepad.view.SettingOption
+                android:id="@+id/spellCheck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/settingOptionMargin"
+                app:src="@mipmap/setting_option_spell_check"
+                app:title="拼写检查"
+                app:with_switch_btn="true" />
+
+        </LinearLayout>
+
+        <!-- 以下是关于应用 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="关于此应用"
+            android:textSize="@dimen/large"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notepad 记事本 2024" />
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

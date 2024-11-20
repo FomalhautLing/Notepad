@@ -12,6 +12,7 @@
     <color name="colorLight">#272D35</color>
     <color name="colorTheme">#DB9EE5</color>
     <color name="textSelected">#0078D7</color>
+    <color name="gray">#CDCECF</color>
 
 
     <!-- setting -->
