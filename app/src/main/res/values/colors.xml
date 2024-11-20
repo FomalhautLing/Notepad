@@ -10,6 +10,8 @@
     <color name="colorDark">#000C1B</color>
     <color name="colorNorm">#1A2128</color>
     <color name="colorLight">#272D35</color>
+    <color name="colorTheme">#DB9EE5</color>
+    <color name="textSelected">#0078D7</color>
 
 
     <!-- setting -->
@@ -24,5 +26,13 @@
     <color name="dialogDark">#202020</color>
     <color name="dialogButton">#2D2D2D</color>
     <color name="dialogButtonPressed">#323232</color>
+
+
+    <!-- switch -->
+    <color name="switchOn">@color/colorTheme</color>
+
+
+    <!-- menu -->
+    <color name="menuBackground">#2C2C2C</color>
 
 </resources>

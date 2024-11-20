@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/dec_page_tint"
     android:fillViewport="true">
 
     <EditText
@@ -10,12 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:breakStrategy="simple"
         android:gravity="top"
         android:importantForAutofill="no"
         android:inputType="textMultiLine|textNoSuggestions"
         android:padding="@dimen/paddingToScreen"
-        android:breakStrategy="simple"
         android:scrollbars="vertical"
+        android:textColorHighlight="@color/textSelected"
         android:textSize="@dimen/normal"
         tools:ignore="LabelFor" />
 

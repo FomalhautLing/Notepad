@@ -52,7 +52,11 @@ public class PageManager extends ActivityManager<MainActivity> {
     }
 
     public ContentFragment getCurrentFragment() {
-        return adapter.get(getCurrentPosition());
+        return getFragment(getCurrentPosition());
+    }
+
+    public ContentFragment getFragment(int position) {
+        return adapter.get(position);
     }
 
     public int getSize() {

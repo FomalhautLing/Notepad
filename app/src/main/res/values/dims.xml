@@ -3,6 +3,7 @@
 
     <!-- general -->
     <dimen name="paddingToScreen">10dp</dimen>
+    <dimen name="pageHintWidth">200dp</dimen>
 
     <dimen name="navbarHeight">40dp</dimen>
     <dimen name="navbarItemWidth">150dp</dimen>
@@ -13,6 +14,13 @@
     <dimen name="toolItemWidth">50dp</dimen>
 
     <dimen name="footerHeight">30dp</dimen>
+
+
+    <!-- setting -->
+    <dimen name="settingBarHeight">30dp</dimen>
+    <dimen name="settingOptionHeight">65dp</dimen>
+    <dimen name="settingOptionMargin">5dp</dimen>
+    <dimen name="settingOptionIconWidth">20dp</dimen>
 
 
     <!-- font sizes -->
@@ -27,4 +35,14 @@
     <dimen name="dialogPadding">15dp</dimen>
     <dimen name="dialogButtonGap">7dp</dimen>
     <dimen name="dialogButtonHeight">35dp</dimen>
+
+
+    <!-- switch -->
+    <dimen name="switchThumbSize">20dp</dimen>
+    <dimen name="switchThumbGap">7dp</dimen>
+
+
+    <dimen name="menuItemHeight">30dp</dimen>
+    <dimen name="menuItemPadding">10dp</dimen>
+    <dimen name="menuWidth">100dp</dimen>
 </resources>

@@ -1,5 +1,7 @@
 package pvt.sanae.notepad.fragment;
 
+import static android.text.InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import lombok.Getter;
 import pvt.sanae.notepad.MainActivity;
 import pvt.sanae.notepad.R;
+import pvt.sanae.notepad.util.ConfigUtil;
 
 public class ContentFragment extends Fragment {
 
@@ -54,6 +57,18 @@ public class ContentFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        int type = textarea.getInputType();
+        // 没用
+        if (ConfigUtil.isSpellCheck()) {
+            textarea.setInputType(type & ~TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        } else {
+            textarea.setInputType(type | TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        }
+    }
+
     public boolean contentNotChanged() {
         if (initialText == null) initialText = "";
         return initialText.equals(getContent());
@@ -89,8 +104,9 @@ public class ContentFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 if (uri == null) {
-                    if (getContent().isEmpty()) ac.mNavbar.setCurrentText("无标题");
-                    else ac.mNavbar.setCurrentText(getFirstLine(-1));
+                    String l = getFirstLine(-1);
+                    if (l.isEmpty()) ac.mNavbar.setCurrentText("无标题");
+                    else ac.mNavbar.setCurrentText(l);
                 }
             }
         });

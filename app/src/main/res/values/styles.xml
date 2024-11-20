@@ -4,7 +4,7 @@
     <!-- tool -->
     <style name="ToolItem">
         <item name="android:layout_width">@dimen/toolItemWidth</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:clickable">true</item>
         <item name="android:gravity">center</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
@@ -18,6 +18,27 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:paddingHorizontal">10dp</item>
         <item name="android:textSize">@dimen/small</item>
+    </style>
+
+
+    <!-- setting -->
+    <style name="SettingOptionIcon">
+        <item name="android:layout_width">@dimen/settingOptionIconWidth</item>
+        <item name="android:layout_rowSpan">2</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+    </style>
+
+    <style name="SettingOptionSwitch">
+        <item name="android:layout_row">0</item>
+        <item name="android:layout_rowSpan">2</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_column">2</item>
+        <item name="android:thumb">@drawable/switch_thumb</item>
+        <item name="thumbTint">@drawable/switch_thumb_tint</item>
+        <item name="track">@drawable/switch_track</item>
+        <item name="trackTint">@drawable/switch_track_tint</item>
     </style>
 
 

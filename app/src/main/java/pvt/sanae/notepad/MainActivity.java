@@ -16,6 +16,7 @@ import pvt.sanae.notepad.manager.FooterManager;
 import pvt.sanae.notepad.manager.NavbarManager;
 import pvt.sanae.notepad.manager.PageManager;
 import pvt.sanae.notepad.manager.ToolbarManager;
+import pvt.sanae.notepad.util.ConfigUtil;
 import pvt.sanae.notepad.util.IOUtil;
 import pvt.sanae.notepad.util.ToastUtil;
 
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        ConfigUtil.init(this);
 
         initManager();
         mPage.addPage(new ContentFragment());

@@ -57,9 +57,12 @@ public class NavbarItem extends FrameLayout {
     }
 
     private void onRemove(View v) {
-        ContentFragment cf = ac.mPage.getCurrentFragment();
+        int position = ac.mNavbar.indexOfItem(this);
+        Log.d(TAG, "on remove: " + position);
+
+        ContentFragment cf = ac.mPage.getFragment(position);
         if (cf.contentNotChanged()) {
-            ac.mPage.removePage(ac.mNavbar.indexOfItem(this));
+            ac.mPage.removePage(position);
             return;
         }
 
@@ -71,7 +74,7 @@ public class NavbarItem extends FrameLayout {
                 try (OutputStream out = ac.getContentResolver().openOutputStream(cf.getUri())) {
                     if (out != null) {
                         out.write(cf.getContent().getBytes(StandardCharsets.UTF_8));
-                        ac.mPage.removePage(ac.mNavbar.indexOfItem(this));
+                        ac.mPage.removePage(position);
                     } else {
                         throw new IOException("Unable to open OutputStream.");
                     }
@@ -90,7 +93,7 @@ public class NavbarItem extends FrameLayout {
                     if (target.createNewFile()) {
                         try (FileOutputStream out = new FileOutputStream(target)) {
                             out.write(cf.getContent().getBytes(StandardCharsets.UTF_8));
-                            ac.mPage.removePage(ac.mNavbar.indexOfItem(this));
+                            ac.mPage.removePage(position);
                         }
                     } else {
                         throw new FileAlreadyExistsException(target.toString());
@@ -106,7 +109,7 @@ public class NavbarItem extends FrameLayout {
                 .setTitle("记事本")
                 .setDesc("是否要将更改保存到 " + descPath + "?")
                 .setPositiveButton("保存", positiveRunnable)
-                .setNegativeButton("不保存", ac.mPage::removeCurrentPage)
+                .setNegativeButton("不保存", () -> ac.mPage.removePage(position))
                 .setNeutralButton("取消", null)
                 .show(ac.getSupportFragmentManager(), null);
     }
