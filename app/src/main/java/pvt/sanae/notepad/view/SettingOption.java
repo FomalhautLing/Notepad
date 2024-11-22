@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.SwitchCompat;
 
@@ -74,6 +75,10 @@ public class SettingOption extends LinearLayout {
 
                     if (getId() == R.id.appTheme) {
                         initSubOption(appTheme, ConfigUtil.getAppTheme());
+                        subOption.setOnCheckedChangeListener((group, checkedId) -> {
+                            ConfigUtil.setAppTheme(getSubOption());
+                            ConfigUtil.setAppDayNight();
+                        });
                     }
 
                     if (subOption != null) {

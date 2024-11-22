@@ -1,7 +1,21 @@
 package pvt.sanae.notepad.util;
 
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_AUTO;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
+import static androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode;
+
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.transition.Fade;
+import android.transition.Transition;
+import android.transition.TransitionManager;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import lombok.Getter;
 
@@ -45,5 +59,13 @@ public class ConfigUtil {
         SharedPreferences.Editor editor = sp.edit();
         editor.putBoolean("spellCheck", spellCheck);
         editor.apply();
+    }
+
+    public static void setAppDayNight() {
+        switch (appTheme) {
+            case ConfigUtil.THEME_DAY -> setDefaultNightMode(MODE_NIGHT_NO);
+            case ConfigUtil.THEME_NIGHT -> setDefaultNightMode(MODE_NIGHT_YES);
+            case ConfigUtil.THEME_AUTO -> setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
+        }
     }
 }

@@ -3,9 +3,9 @@ package pvt.sanae.notepad;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.documentfile.provider.DocumentFile;
 
 import java.io.IOException;
@@ -33,15 +33,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
-        ConfigUtil.init(this);
 
         initManager();
         mPage.addPage(new ContentFragment());
 
         Uri uri = getIntent().getData();
         if (uri != null) handleIntent(uri);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ConfigUtil.init(this);
+        ConfigUtil.setAppDayNight();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            mNavbar.get(mPage.getCurrentPosition()).remove();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private void handleIntent(Uri uri) {

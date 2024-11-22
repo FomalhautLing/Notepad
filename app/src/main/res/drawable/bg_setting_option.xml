@@ -2,14 +2,16 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_selected="false">
         <shape>
-            <solid android:color="@color/settingLight" />
+            <solid android:color="@color/settingOptionBackground" />
             <corners android:radius="5dp" />
+            <stroke android:width="1dp" android:color="@color/switchOptionBorder" />
         </shape>
     </item>
     <item android:state_selected="true">
         <shape>
-            <solid android:color="@color/settingLight" />
+            <solid android:color="@color/settingOptionBackground" />
             <corners android:topLeftRadius="5dp" android:topRightRadius="5dp" />
+            <stroke android:width="1dp" android:color="@color/switchOptionBorder" />
         </shape>
     </item>
 </selector>

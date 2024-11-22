@@ -7,7 +7,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,13 +15,15 @@ import androidx.fragment.app.Fragment;
 import lombok.Getter;
 import pvt.sanae.notepad.MainActivity;
 import pvt.sanae.notepad.R;
+import pvt.sanae.notepad.view.TextArea;
 
 public class ContentFragment extends Fragment {
 
     private MainActivity ac;
-    private EditText textarea;
+    private TextArea textarea;
     private String initialText;
-    @Getter private Uri uri;
+    @Getter
+    private Uri uri;
 
     public static ContentFragment newInstance(Uri uri, String initialText) {
         Bundle args = new Bundle();
@@ -72,10 +73,9 @@ public class ContentFragment extends Fragment {
     }
 
     private void bindListener() {
-        textarea.setOnClickListener(v -> updateFooter());  // 第一次获取焦点时不触发点击事件
-        textarea.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) updateFooter();
-        });
+        textarea.setOnSelectionChangedListener(this::updateFooter);
+        textarea.setOnClickListener(this::updateFooter);  // 第一次获取焦点时不触发点击事件
+        textarea.setOnFocusChangeListener(this::updateFooter);
         textarea.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -97,7 +97,7 @@ public class ContentFragment extends Fragment {
         });
     }
 
-    private void updateFooter() {
+    private void updateFooter(Object... args) {
         String content = getContent();
         int row = 1, colum = 1;
         for (int i = 0; i < textarea.getSelectionEnd(); i++) {
@@ -106,6 +106,6 @@ public class ContentFragment extends Fragment {
                 colum = 1;
             } else colum++;
         }
-        ac.mFooter.setFooter(row, colum, content.length());
+        ac.mFooter.setFooter(row, colum, content.length(), textarea.getSelectionLength());
     }
 }

@@ -17,6 +17,7 @@ public class SettingActivity extends ViewActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+//        getWindow().setWindowAnimations(R.style.onThemeChange);
         appTheme.setSubOption(ConfigUtil.getAppTheme());
         autoBreak.setChecked(ConfigUtil.isAutoBreak());
         spellCheck.setChecked(ConfigUtil.isSpellCheck());

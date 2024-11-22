@@ -48,7 +48,7 @@ public class NavbarItem extends FrameLayout {
             }
         }
 
-        view.findViewById(R.id.close).setOnClickListener(this::onRemove);
+        view.findViewById(R.id.close).setOnClickListener(v -> remove());
         setOnClickListener(v -> ac.mPage.setCurrentPosition(ac.mNavbar.indexOfItem(this)));
     }
 
@@ -56,7 +56,7 @@ public class NavbarItem extends FrameLayout {
         this.text.setText(text);
     }
 
-    private void onRemove(View v) {
+    public void remove() {
         int position = ac.mNavbar.indexOfItem(this);
         Log.d(TAG, "on remove: " + position);
 

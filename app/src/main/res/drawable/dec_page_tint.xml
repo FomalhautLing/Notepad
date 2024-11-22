@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:height="1dp" android:width="@dimen/pageHintWidth" android:gravity="center_horizontal">
         <shape>
-            <solid android:color="#80505050" />
+            <solid android:color="@color/pageHint" />
         </shape>
     </item>
 </layer-list>

@@ -44,6 +44,10 @@ public class NavbarManager extends ActivityManager<MainActivity> {
         }
     }
 
+    public NavbarItem get(int position) {
+        return (NavbarItem) navbar.getChildAt(position);
+    }
+
     public int indexOfItem(NavbarItem item) {
         return navbar.indexOfChild(item);
     }

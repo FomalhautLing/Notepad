@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!-- 亮色模式暂未适配，定义在 values/colors 中的就是夜间模式的颜色值 -->
+
+    <!-- main colors -->
+    <color name="brand">#DB9EE5</color>
+    <color name="gray">#CDCECF</color>
+
+
+    <!-- content fragment -->
+    <color name="textSelectedBackground">#0078D7</color>
+    <color name="pageHint">#80505050</color>
+
+
+    <!-- navbar & toolbar -->
+    <color name="navbarBackground">#000C1B</color>
+    <color name="toolbarBackground">#1A2128</color>
+
+
+    <!-- setting -->
+    <color name="settingBackground">#1D2026</color>
+    <color name="settingOptionBackground">#292B31</color>
+    <color name="settingSubOptionBackground">#25272C</color>
+
+
+    <!-- dialog -->
+    <color name="dialogLight">#2B2B2B</color>
+    <color name="dialogDark">#202020</color>
+    <color name="dialogButton">#2D2D2D</color>
+    <color name="dialogButtonPressed">#323232</color>
+
+
+    <!-- switch -->
+    <color name="switchThumbTint">#000000</color>
+    <color name="switchOptionBorder">#202020</color>
+
+
+    <!-- menu -->
+    <color name="menuBackground">#2C2C2C</color>
+
 </resources>

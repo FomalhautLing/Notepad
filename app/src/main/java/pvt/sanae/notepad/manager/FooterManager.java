@@ -16,9 +16,13 @@ public class FooterManager extends ActivityManager<MainActivity> {
     }
 
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
-    public void setFooter(int cursorRow, int cursorColum, int worldCnt) {
+    public void setFooter(int cursorRow, int cursorColum, int worldCnt, int selected) {
         footerItem_cursor.setText(String.format("行 %d，列 %d", cursorRow, cursorColum));
-        footerItem_wordCnt.setText(worldCnt + " 个字符");
+        if (selected == 0) {
+            footerItem_wordCnt.setText(worldCnt + " 个字符");
+        } else {
+            footerItem_wordCnt.setText(selected + " 个字符，共 " + worldCnt + " 个");
+        }
     }
 
     @Override

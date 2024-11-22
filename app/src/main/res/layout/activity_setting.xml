@@ -24,7 +24,7 @@
                 android:background="@null"
                 android:paddingHorizontal="10dp"
                 android:rotation="270"
-                android:src="@mipmap/arrow"
+                android:src="@mipmap/hint_arrow1"
                 tools:ignore="ContentDescription" />
 
             <ImageView
