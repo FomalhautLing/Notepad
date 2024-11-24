@@ -1,3 +1,8 @@
 <resources>
+
     <string name="app_name">Notepad</string>
+
+    <string name="times" translatable="false">×</string>
+    <string name="plus" translatable="false">+</string>
+    <string name="oplus" translatable="false">●</string>
 </resources>

@@ -6,7 +6,7 @@
     android:background="@drawable/dec_page_tint"
     android:fillViewport="true">
 
-    <pvt.sanae.notepad.view.TextArea
+    <pvt.sanae.notepad.widget.TextArea
         android:id="@+id/textarea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:importantForAutofill="no"
         android:inputType="textMultiLine|textNoSuggestions"
         android:padding="@dimen/paddingToScreen"
-        android:scrollbars="vertical"
+        android:scrollbars="horizontal"
         android:textColorHighlight="@color/textSelectedBackground"
         android:textSize="@dimen/normal"
         tools:ignore="LabelFor" />

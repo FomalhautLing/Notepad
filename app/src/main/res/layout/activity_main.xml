@@ -44,10 +44,12 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="7dp"
+                android:layout_marginEnd="50dp"
                 android:layout_toEndOf="@id/navbar"
                 android:clickable="true"
                 android:paddingHorizontal="7dp"
-                android:text="+" />
+                android:text="@string/plus"
+                android:textSize="@dimen/extra" />
 
         </RelativeLayout>
 
@@ -88,10 +90,10 @@
 
         <ImageButton
             android:id="@+id/settingBtn"
-            android:paddingHorizontal="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
+            android:paddingHorizontal="5dp"
             android:src="@mipmap/icon_setting"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -126,7 +128,7 @@
         <TextView
             android:id="@+id/footerItem_cursor"
             style="@style/FooterItem"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:text="行 1，列 1" />
 
         <TextView
@@ -139,6 +141,7 @@
             android:id="@+id/footerItem_charset"
             style="@style/FooterItem"
             android:layout_weight="2"
+            android:clickable="true"
             android:text="UTF-8" />
 
     </LinearLayout>

@@ -2,10 +2,12 @@ package pvt.sanae.notepad.menu;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListPopupWindow;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import pvt.sanae.notepad.R;
@@ -27,10 +29,6 @@ public class ToolbarMenu extends ListPopupWindow {
     }
 
     public void setData(String[] data) {
-        setData(data, null);
-    }
-
-    public void setData(String[] data, int[] dividers) {
         setAdapter(new ArrayAdapter<>(context, R.layout.menu_item, data));
         setOnItemClickListener((parent, view, position, id) -> {
             ToastUtil.showShort(context, data[position]);

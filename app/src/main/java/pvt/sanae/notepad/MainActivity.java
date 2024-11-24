@@ -18,6 +18,7 @@ import pvt.sanae.notepad.manager.PageManager;
 import pvt.sanae.notepad.manager.ToolbarManager;
 import pvt.sanae.notepad.util.ConfigUtil;
 import pvt.sanae.notepad.util.IOUtil;
+import pvt.sanae.notepad.util.StorageUtil;
 import pvt.sanae.notepad.util.ToastUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            mNavbar.get(mPage.getCurrentPosition()).remove();
+            StorageUtil.saveContent(this, mPage.getCurrentPosition(), true);
             return true;
         }
         return super.onKeyDown(keyCode, event);

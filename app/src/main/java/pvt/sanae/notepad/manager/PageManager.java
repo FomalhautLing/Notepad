@@ -35,10 +35,6 @@ public class PageManager extends ActivityManager<MainActivity> {
         }
     }
 
-    public void removeCurrentPage() {
-        removePage(getCurrentPosition());
-    }
-
     public void setPageData(int position, ContentFragment cf) {
         adapter.set(position, cf);
     }
@@ -49,10 +45,6 @@ public class PageManager extends ActivityManager<MainActivity> {
 
     public void setCurrentPosition(int position) {
         pager.setCurrentItem(position);
-    }
-
-    public ContentFragment getCurrentFragment() {
-        return getFragment(getCurrentPosition());
     }
 
     public ContentFragment getFragment(int position) {

@@ -13,9 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import lombok.Getter;
+import lombok.Setter;
 import pvt.sanae.notepad.MainActivity;
 import pvt.sanae.notepad.R;
-import pvt.sanae.notepad.view.TextArea;
+import pvt.sanae.notepad.widget.TextArea;
 
 public class ContentFragment extends Fragment {
 
@@ -23,6 +24,7 @@ public class ContentFragment extends Fragment {
     private TextArea textarea;
     private String initialText;
     @Getter
+    @Setter
     private Uri uri;
 
     public static ContentFragment newInstance(Uri uri, String initialText) {
@@ -60,8 +62,13 @@ public class ContentFragment extends Fragment {
         return initialText.equals(getContent());
     }
 
+    public void saveContent() {
+        initialText = getContent();
+        ac.mNavbar.get(ac.mPage.getCurrentPosition()).setHintSaved();
+    }
+
     public String getContent() {
-        return textarea.getText().toString();
+        return textarea.toString();
     }
 
     public String getFirstLine(int limit) {
@@ -84,6 +91,7 @@ public class ContentFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateFooter();
+                updateNavbar();
             }
 
             @Override
@@ -95,6 +103,11 @@ public class ContentFragment extends Fragment {
                 }
             }
         });
+    }
+
+    private void updateNavbar() {
+        if (contentNotChanged()) ac.mNavbar.get(ac.mPage.getCurrentPosition()).setHintSaved();
+        else ac.mNavbar.get(ac.mPage.getCurrentPosition()).setHintUnsaved();
     }
 
     private void updateFooter(Object... args) {

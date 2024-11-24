@@ -25,7 +25,8 @@
         android:clickable="true"
         android:gravity="center"
         android:paddingHorizontal="@dimen/navbarItemPadding"
-        android:text="×"
+        android:text="@string/times"
+        android:textSize="@dimen/extra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

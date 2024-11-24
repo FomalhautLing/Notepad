@@ -1,18 +1,29 @@
 package pvt.sanae.notepad.manager;
 
 import android.annotation.SuppressLint;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import pvt.sanae.notepad.MainActivity;
 import pvt.sanae.notepad.R;
+import pvt.sanae.notepad.util.ToastUtil;
 
 public class FooterManager extends ActivityManager<MainActivity> {
 
+    private LinearLayout footer;
     private TextView footerItem_cursor;
     private TextView footerItem_wordCnt;
 
     public FooterManager(MainActivity ac) {
         super(ac);
+    }
+
+    public void setVisibility(int visibility) {
+        footer.setVisibility(visibility);
+    }
+
+    public int getVisibility() {
+        return footer.getVisibility();
     }
 
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -27,7 +38,16 @@ public class FooterManager extends ActivityManager<MainActivity> {
 
     @Override
     protected void initView() {
+        footer = ac.findViewById(R.id.footer);
         footerItem_cursor = ac.findViewById(R.id.footerItem_cursor);
         footerItem_wordCnt = ac.findViewById(R.id.footerItem_wordCnt);
+    }
+
+    @Override
+    protected void bindListener() {
+        ac.findViewById(R.id.footerItem_charset).setOnClickListener(v -> {
+            // TODO
+            ToastUtil.showShort(ac, "Not support yet.");
+        });
     }
 }

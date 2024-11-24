@@ -1,4 +1,4 @@
-package pvt.sanae.notepad.view;
+package pvt.sanae.notepad.widget;
 
 
 import android.content.Context;
@@ -22,6 +22,13 @@ public class TextArea extends AppCompatEditText {
 
     public void setOnSelectionChangedListener(Runnable r) {
         mOnSelectionChanged = r;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        if (getText() == null) return "";
+        return getText().toString();
     }
 
     @Override
